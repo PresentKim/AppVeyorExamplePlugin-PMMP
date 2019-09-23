@@ -24,10 +24,14 @@ image: Ubuntu1804
 # set clone depth
 clone_depth: 5
 
+# environment variables
+environment:
+  APPVEYOR_BUILD_URL: ${APPVEYOR_URL}/project/${APPVEYOR_ACCOUNT_NAME}/${APPVEYOR_PROJECT_NAME}/builds/${APPVEYOR_BUILD_ID}
+
 # build cache to preserve files/folders between builds
 cache:
   - '$HOME/cache/' # my cache
-  
+
 # scripts that are called at very beginning, before repo cloning
 init:
   - mkdir $HOME/cache/
@@ -35,12 +39,12 @@ init:
 # scripts that run after cloning repository
 install:
   - wget -nc -P $HOME/cache/ https://jenkins.pmmp.io/job/PHP-7.3-Linux-x86_64/lastSuccessfulBuild/artifact/PHP_Linux-x86_64.tar.gz
-  - tar -C ../ -xvf $HOME/cache/PHP_Linux-x86_64.tar.gz
+  - tar -C ../ -xvf $HOME/cache//PHP_Linux-x86_64.tar.gz
   - wget --cache=off --cookies=off https://gist.githubusercontent.com/PresentKim/b401f5d88d2ec7d9655afa8468658a9f/raw/build.php
 
 # to run your custom scripts instead of automatic MSBuild
 build_script:
-  - ../bin/php7/bin/php ./build.php --buildurl=${APPVEYOR_URL}/project/${APPVEYOR_ACCOUNT_NAME}/${APPVEYOR_PROJECT_NAME}/builds/${APPVEYOR_BUILD_ID} --buildnum=${APPVEYOR_BUILD_NUMBER}
+  - ../bin/php7/bin/php ./build.php --buildurl=${APPVEYOR_BUILD_URL} --buildnum=${APPVEYOR_BUILD_NUMBER}
 
 
 #---------------------------------#
