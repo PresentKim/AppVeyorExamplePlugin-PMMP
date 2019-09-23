@@ -40,7 +40,7 @@ install:
 
 # to run your custom scripts instead of automatic MSBuild
 build_script:
-  - ../bin/php7/bin/php ./build.php --buildurl=${APPVEYOR_BUILD_URI} --buildnum=${APPVEYOR_BUILD_NUMBER}
+  - ../bin/php7/bin/php ./build.php --buildurl=${APPVEYOR_URL}/project/${APPVEYOR_ACCOUNT_NAME}/${APPVEYOR_PROJECT_NAME}/builds/${APPVEYOR_BUILD_ID} --buildnum=${APPVEYOR_BUILD_NUMBER}
 
 
 #---------------------------------#
