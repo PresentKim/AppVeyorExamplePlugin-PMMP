@@ -66,7 +66,7 @@ function main() : void{
 	$stub = sprintf(PLUGIN_STUB, $metadata["name"], $metadata["version"], $metadata["author"], date("r"), $opts["buildurl"]);
 
 	@mkdir(__DIR__ . DIRECTORY_SEPARATOR . "releases");
-	$pharPath = $metadata["name"] . " " . $metadata["version"] . ".phar";
+	$pharPath = $metadata["name"] . "_v" . $metadata["version"] . ".phar";
 	foreach(buildPhar(__DIR__ .DIRECTORY_SEPARATOR . "releases" . DIRECTORY_SEPARATOR . $pharPath, $basePath, $includedPaths, $metadata, $stub, \Phar::SHA1, \Phar::GZ) as $line){
 		echo $line . PHP_EOL;
 	}
