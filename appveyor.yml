@@ -39,7 +39,7 @@ clone_depth: 5
 # environment variables
 environment:
   APPVEYOR_BUILD_URL: "https://ci.appveyor.com/project/${APPVEYOR_ACCOUNT_NAME}/${APPVEYOR_PROJECT_NAME}/builds/${APPVEYOR_BUILD_ID}"
-  BUILD_SCRIPT_URL: "https://gist.githubusercontent.com/PresentKim/b401f5d88d2ec7d9655afa8468658a9f/raw/build.php"
+  BUILD_SCRIPT_URL: "https://raw.githubusercontent.com/organization/ExamplePlugin-AppVeyor/master/build.php"
 
 # build cache to preserve files/folders between builds
 cache:
