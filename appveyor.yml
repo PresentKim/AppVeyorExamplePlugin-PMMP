@@ -31,7 +31,7 @@ clone_depth: 5
 
 # environment variables
 environment:
-  APPVEYOR_BUILD_URL: "${APPVEYOR_URL}/project/${APPVEYOR_ACCOUNT_NAME}/${APPVEYOR_PROJECT_NAME}/builds/${APPVEYOR_BUILD_ID}"
+  APPVEYOR_BUILD_URL: "https://ci.appveyor.com/project/${APPVEYOR_ACCOUNT_NAME}/${APPVEYOR_PROJECT_NAME}/builds/${APPVEYOR_BUILD_ID}"
 
 # build cache to preserve files/folders between builds
 cache:
